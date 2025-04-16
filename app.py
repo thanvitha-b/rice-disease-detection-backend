@@ -3,12 +3,19 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 import pickle
+import os
+
+# Define paths for model files (replace 'YourUsername' with your actual username)
+cnn_model_path = "C:/Users/Thanvitha/Downloads/cnn_model.h5"
+resnet_model_path = "C:/Users/Thanvitha/Downloads/resnet_model.h5"
+mobilenet_model_path = "C:/Users/Thanvitha/Downloads/mobilenet_model.h5"
+rf_model_path = "C:/Users/Thanvitha/Downloads/rf_model.pkl"
 
 # Load trained models
-cnn_model = tf.keras.models.load_model('cnn_model.h5')  # Adjust path as needed
-resnet_model = tf.keras.models.load_model('resnet_model.h5')  # Adjust path as needed
-mobilenet_model = tf.keras.models.load_model('mobilenet_model.h5')  # Adjust path as needed
-rf_model = pickle.load(open('rf_model.pkl', 'rb'))  # Adjust path as needed
+cnn_model = tf.keras.models.load_model(cnn_model_path)
+resnet_model = tf.keras.models.load_model(resnet_model_path)
+mobilenet_model = tf.keras.models.load_model(mobilenet_model_path)
+rf_model = pickle.load(open(rf_model_path, 'rb'))
 
 # Define disease classes
 disease_classes = ['Bacterial Leaf Blight', 'Brown Spot', 'Healthy', 'Leaf Blast', 'Leaf Scald', 'Narrow Brown Spot']
